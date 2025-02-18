@@ -1,5 +1,3 @@
----
-
 # ML IDS
 
 A collection of Machine Learning tools to build an AI-powered IDS.
@@ -22,5 +20,3 @@ pip install -r requirements.txt
 ```sh
 python main.py
 ```
-
-...
