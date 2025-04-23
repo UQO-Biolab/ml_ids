@@ -6,16 +6,16 @@ def delete_unused_files(output_directory):
     pattern_to_delete = ["attacker.log*", "honeytrap.log*", "dionaea.sqlite*"]
     for pattern in pattern_to_delete:
         # Using glob to get the list of files matching the pattern
-        fichiers = glob.glob(os.path.join(output_directory, pattern))
+        files = glob.glob(os.path.join(output_directory, pattern))
 
         # Delete each file matching the pattern
-        for fichier in fichiers:
+        for file in files:
             try:
-                os.remove(fichier)
-                print(f"Le fichier {fichier} a été supprimé avec succès.")
+                os.remove(file)
+                print(f"The file {file} was successfully deleted.")            
             except FileNotFoundError:
-                print(f"Le fichier {fichier} n'existe pas.")
+                print(f"The file {file} does not exist.")
             except PermissionError:
-                print(f"Vous n'avez pas les permissions nécessaires pour supprimer le fichier {fichier}.")
+                print(f"You do not have the necessary permissions to delete the file {file}.")
             except Exception as e:
-                print(f"Une erreur s'est produite : {e}")
+                print(f"An error occurred: {e}")

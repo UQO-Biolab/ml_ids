@@ -1,7 +1,4 @@
 def filtrer_lignes(single_json, single_json_filtered):
-    """
-    Filtre les lignes d'un fichier pour ne conserver que celles qui commencent par '{'.
-    """
     with open(single_json, 'r', encoding='utf-8') as f_entree:
         with open(single_json_filtered, 'w', encoding='utf-8') as f_sortie:
             # Reading the input file line by line

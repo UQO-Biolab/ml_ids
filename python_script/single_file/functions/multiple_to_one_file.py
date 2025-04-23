@@ -1,9 +1,6 @@
 import os
 
 def fusionner_fichiers(output_directory, single_json):
-    """
-    Fusionne tous les fichiers d'un répertoire dans un seul fichier de sortie.
-    """
     with open(single_json, 'w', encoding='utf-8') as f_sortie:
         # List all files in the directory
         fichiers = os.listdir(output_directory)

@@ -1,9 +1,6 @@
 import json
 
 def tester_fichier_json(single_json_filtered):
-    """
-    Teste si un fichier est un JSON valide.
-    """
     try:
         with open(single_json_filtered, 'r', encoding='utf-8') as fichier:
             # Try to parse the file contents as JSON
