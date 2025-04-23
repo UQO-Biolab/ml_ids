@@ -23,3 +23,4 @@ cp datasets/cowrie_dataset_40k.csv unsupervised_training/cowrie_training/cowrie_
 sh setup.sh
 python3 train_supervised_cowrie.py
 ```
+### 3. Use or test your model
