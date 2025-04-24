@@ -17,7 +17,7 @@ Use your own dataset or use our, located in datasets/<chosen_dataset>.
 
 Example: for Cowrie training.
 ```sh
-cp datasets/cowrie_dataset_40k.csv unsupervised_training/cowrie_training/cowrie_dataset_40k.csv
+cp datasets/cowrie_dataset_40k.csv supervised_training/cowrie_training/cowrie_dataset_40k.csv
 ```
 ```sh
 sh setup.sh
