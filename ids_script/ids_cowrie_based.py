@@ -45,7 +45,7 @@ def detect_bruteforce(ip_src, timestamp, service="SSH"):
     bruteforce_attempts[(ip_src, service)] = [t for t in attempts if t > window_start]
 
     if len(bruteforce_attempts[(ip_src, service)]) >= BRUTEFORCE_THRESHOLD:
-        print(f"🚨 [Bruteforce {service}] IP suspecte : {ip_src} ({len(attempts)} tentatives en {BRUTEFORCE_WINDOW_SECONDS}s)")
+        print(f"🚨 [Bruteforce {service}] IP : {ip_src} ({len(attempts)} temptations in {BRUTEFORCE_WINDOW_SECONDS}s)")
     
 
 def extract_features(packet):
@@ -94,9 +94,9 @@ def extract_features(packet):
 
             #print("Start time:", start_time)
             if dst_port == 22:
-                print(f"Fin de session SSH {ip_src} -> {ip_dst}")
+                print(f"End of session SSH {ip_src} -> {ip_dst}")
             elif dst_port == 23:
-                print(f"Fin de session Telnet {ip_src} -> {ip_dst}")
+                print(f"End of session Telnet {ip_src} -> {ip_dst}")
 
             if start_time:
                 end_time = float(packet.sniff_timestamp)
@@ -141,8 +141,9 @@ def extract_features(packet):
         return None
 
 # Sniffing
+# Put the correct interface for your case
 capture = pyshark.LiveCapture(interface='ens160', display_filter='tcp.port == 22 or tcp.port == 23')
-print("Sniffing... Ctrl+C pour to stop.")
+print("Sniffing... Ctrl+C to stop.")
 try:
     for packet in capture.sniff_continuously():
         feats = extract_features(packet)
@@ -153,7 +154,7 @@ try:
             features = [ 'duration', 'src_ip_int', 'src_port', 'dst_port', 'protocol', 'total_connexion', 'login_success', 'login_failed', 'avg_time_between_failed', 'is_business_hours']
             x = pd.DataFrame(df, columns=features)
             result = model.predict(x)
-            ("Résultat brut :", result)
+            ("Raw result :", result)
             if result[0] == 1:
                 print("🚨 Alert")
             else:
