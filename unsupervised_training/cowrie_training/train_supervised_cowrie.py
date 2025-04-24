@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 
 # Insert your dataset
-df = pd.read_csv('cowrie_sessions_40k_label_correct.csv')
+df = pd.read_csv('cowrie_dataset_40k.csv')
 
 # Convert ip to int
 import ipaddress
