@@ -1,8 +1,8 @@
 import os
 from functions.decompress_gz_files import decompress_gz_files
 from functions.delete_unused_files import delete_unused_files
-from functions.filter_json_lines import filtrer_lignes
-from functions.multiple_to_one_file import fusionner_fichiers
+from functions.filter_json_lines import filter_lines
+from functions.multiple_to_one_file import merge_files
 from functions.json_tester import tester_fichier_json
 
 # Cowrie / honeytrap / ciscoasa / dionaea / sentrypeer 
@@ -20,8 +20,8 @@ for honeypot in selected_honeypots:
     decompress_gz_files(log_path, output_directory)
 
 delete_unused_files(output_directory)
-fusionner_fichiers(output_directory, single_json)
-filtrer_lignes(single_json, single_json_filtered)
+merge_files(output_directory, single_json)
+filter_lines(single_json, single_json_filtered)
 tester_fichier_json(single_json_filtered)
        
     
