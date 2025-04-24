@@ -12,4 +12,5 @@ These tools were built to assist with data cleansing and dataset creation:
 | `keep_20k_lines_only.py`         | Parse a file and retain only 20k lines for dataset creation                 |
 | `merge_and_shuffle_rows.py`      | Merge two CSV files and shuffle the rows (used for mixing labeled data)    |
 | `add_string_to_each_line.py`     | Append a specific string (e.g., `,1`) to every line of a file (labeling)    |
-| `login_success_to_0.py`        | Set `login_success` to 0 for rows where the label is 1, useful for cleaning and aligning labels before model training (Cowrie) |
+| `update_login_success.py`        | Set `login_success` to 0 for rows where the label is 1, useful for cleaning and aligning labels before model training |
+| `total_login_equal_to_login_failed.py` | Set `login_failed` equal to `total_connexion` when the label is 1, useful for cleaning the dataset before model training |
